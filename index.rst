@@ -28,13 +28,13 @@
 
   lab4/lab4
 
-.. toctree::
-  :maxdepth: 2
-  :caption: Fit Check Services
-  :name: _lab5
-  :hidden:
-
-  lab5/lab5
+.. .. toctree::
+..   :maxdepth: 2
+..   :caption: Fit Check Services
+..   :name: _lab5
+..   :hidden:
+..
+..   lab5/lab5
 
 .. toctree::
   :maxdepth: 2
