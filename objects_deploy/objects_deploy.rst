@@ -1,4 +1,4 @@
-. _objects_deploy:
+.. _objects_deploy:
 
 .. title:: Nutanix Certified Services Consultant - Nutanix Objects Deployment
 
