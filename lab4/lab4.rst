@@ -10,21 +10,15 @@ Local Snapshot and Recovery
 
 For this lab you will need some test virtual machines. Follow the steps to create new VM.
 
-#. Locate Windows 2012 VM and add a CDROM
+#. Log into Prism
 
-   Click **Update**
+#. Locate Windows 2012 VM in Prism Element > VM
 
-   Click **+Add New Disk** under Disks
+#. Right-click on the Windows 2012 VM and select clone
 
-#. Choose **CDROM**
+#. Name the clone as **Initials**-Win2012
 
-#. Power on the Windows2012 VM
-
-#. Launch Console and configure windows 2012
-
-#. Login and verify it is on the network
-
-#. Install NGT:
+#. To Install NGT:
 
    Click the Windows 2012 VM and choose **Manage Guest Tools**
 
@@ -36,17 +30,11 @@ For this lab you will need some test virtual machines. Follow the steps to creat
 
 #. Eject CDROM
 
-#. Create two clones of this system to have more test systems
-
-Purpose: Explore the rich set of integrated data protection and disaster recovery capabilities in the Nutanix solution.
-
-#. Log into Prism
-
 #. Click on **+ Protection Domain** button > **Async DR**
 
 #. Create a protection domain with a unique name by going through the wizard
 
-#. Name the protection domain **PD-Prod**
+#. Name the protection domain **Intials-PD-Prod**
 
 #. Choose VMs to include in the protection domain
 
@@ -86,7 +74,7 @@ We will now restore VM from Replication:
 #. Overwrite Existing Entities (remember to use a clone to have a copy of your VM):
 
    - Choose to overwrite your VM while online
-   - The VM should boot into the VM at the point in time of the snapshot.
+   - The VM should boot into the VM at the point in time of the snapshot
 
 Self Service Restore (SSR)
 ---------------------------
@@ -166,8 +154,10 @@ To recover remote snapshot from local site A:
 Snapshot to Remote Site & use Migrate/Activate
 ---------------------------------------------------------------
 
-Scenario #1: To move the VM from site A to Site B
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Scenario #1
+^^^^^^^^^^^^^
+
+To move the VM from site A to Site B
 
 #. From Site A, select your Protection Domain
 
@@ -175,8 +165,10 @@ Scenario #1: To move the VM from site A to Site B
 
 #. Feel free to continue work on the VM and make changes and repeat those steps 1&2 to migrate the Protection Domain back to Site A (Fail-Back)
 
-Scenario #2: when Site A has Failed and went down on its own and you want to bring it back online in Site B
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Scenario #2
+^^^^^^^^^^^^^^
+
+When Site A has Failed and went down on its own and you want to bring it back online in Site B.
 
 #. From Site B, select your Protection Domain
 
@@ -186,20 +178,30 @@ Scenario #2: when Site A has Failed and went down on its own and you want to bri
 
    .. note::
 
-     you may need to power on the VMs after activation of the Protection Domain
+     You may need to power on the VMs after activation of the Protection Domain
 
 #. When Site A is considered back online the Migrate button should now be able to send the latest back to Site A
 
    .. note::
-    If we active the DR site while the Primary site is till Active, VMs will be registered on DR site as well.
-    If both the sites are active, we need to destroy the VMs and PD on one of the site hence its recommended to reach out to `support <https://www.nutanix.com/support-services/product-support/support-phone-numbers>`_ before taking any action.
 
+     Data Protection Best Practices:
 
-Snapshot to Remote Site
----------------------------------------------------------------
+     If you activate a PD because the primary site is down but the primary site comes back up after the failover, you can have a split-brain scenario. To resolve this situation, deactivate the PD on the former primary site. The following command is hidden from the nCLI because it deletes the VMs, but it resolves the split while keeping the existing snapshots:
 
-Recover a snapshot at Remote Site B
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     .. code-block:: bash
 
-#. From the site B look at “local snapshots”
-#. Recover one of your snapshots in Site B
+       ncli> pd deactivate_and_destroy_vms name=<protection_Domain_Name>
+
+     Reference: `Rollback Steps Technote <https://portal.nutanix.com/page/documents/solutions/details?targetId=BP-2005-Data-Protection:top-failover-migrate-vs-activate.html>`_
+
+     If we active the DR site while the Primary site is till Active, VMs will be registered on DR site as well.
+     If both the sites are active, we need to destroy the VMs and PD on one of the site hence its recommended to reach out to `support <https://www.nutanix.com/support-services/product-support/support-phone-numbers>`_ before taking any action.
+
+.. Snapshot to Remote Site
+.. ---------------------------------------------------------------
+..
+.. Recover a snapshot at Remote Site B
+.. ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..
+.. #. From the site B look at “local snapshots”
+.. #. Recover one of your snapshots in Site B

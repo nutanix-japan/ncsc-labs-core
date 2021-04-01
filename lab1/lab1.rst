@@ -137,7 +137,16 @@ Foundation on CVM
    - User: admin
    - Password: Nutanix/4u
 
-..
+#. Add your cluster VIP in Prism Element as shown here (click on the cluster name in Prism Element main dashboard on the top left-hand corner)
+
+   .. figure:: images/pc_vip.png
+
+#. Add DNS to your Prism Element cluster by running the following commands in a CVM shell
+
+   .. code-block:: bash
+
+	  ncli cluster add-to-name-servers servers=8.8.8.8
+
 .. ---------------------
 .. Foundation
 .. ---------------------
@@ -609,41 +618,41 @@ After Prism Central VM is successfully deployed, open \https://*<PC VM IP>*:9440
 Test if you can login Prism Central with the new password.
 
 
-Prism Central Registration
-+++++++++++++++++++++
-
-Go back to POCxx-ABC Cluster  (\https://10.42.xx.37:9440), navigate to **Home** page and click cluster name **POCxx-ABC** and provide a cluster data service ip **10.42.xx.38**
-
-.. figure:: images/9.png
-
-Click **Register or create new** in Prism Central widget.
-
-.. figure:: images/1.png
-
-Choose the second **Connect** option.
-
-.. figure:: images/2.png
-
-Click **Next**
-
-.. figure:: images/6.png
-
-Fill out the following fields, leave others as default and click **Connect**:
-
-- **Prism Central IP** - 10.42.xx.39
-- **Port** - 9440
-- **Username** - admin
-- **Password** - techX2019!
-
-.. figure:: images/7.png
-
-You will see an **OK** with PC's IP in Prism Central widget.
-
-.. figure:: images/8.png
-
-.. note::
-
-  Prism Central's default password for admin *Nutanix/4u* must be changed before cluster registering PC
+.. Prism Central Registration
+.. +++++++++++++++++++++
+..
+.. Go back to POCxx-ABC Cluster  (\https://10.42.xx.37:9440), navigate to **Home** page and click cluster name **POCxx-ABC** and provide a cluster data service ip **10.42.xx.38**
+..
+.. .. figure:: images/9.png
+..
+.. Click **Register or create new** in Prism Central widget.
+..
+.. .. figure:: images/1.png
+..
+.. Choose the second **Connect** option.
+..
+.. .. figure:: images/2.png
+..
+.. Click **Next**
+..
+.. .. figure:: images/6.png
+..
+.. Fill out the following fields, leave others as default and click **Connect**:
+..
+.. - **Prism Central IP** - 10.42.xx.39
+.. - **Port** - 9440
+.. - **Username** - admin
+.. - **Password** - techX2019!
+..
+.. .. figure:: images/7.png
+..
+.. You will see an **OK** with PC's IP in Prism Central widget.
+..
+.. .. figure:: images/8.png
+..
+.. .. note::
+..
+..   Prism Central's default password for admin *Nutanix/4u* must be changed before cluster registering PC
 
 Create an As Built Guide
 ++++++++++++++++++++++++++++++
@@ -661,6 +670,10 @@ Create an As Built Guide
 #.	Follow instructions from the README file and execute the binary. You will be prompted for cluster *username* and *password*.
 
 #.  Change to the directory where the zip file is extracted.
+
+    .. note::
+
+    	Make sure to use Prism Element cluster VIP address to execute the following command
 
     For Windows workstations:
 

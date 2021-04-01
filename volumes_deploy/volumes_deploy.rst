@@ -96,8 +96,8 @@ Connect ABS disks to Windows VM:
 
     .. figure:: images/8.png
 
-Enable and Configure ABS in Prism for Linux
-++++++++++++++++++++++++++++++++++++++++++++
+Enable and Configure ABS in Prism for Linux (Optional)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Ensure that the CentOS VM has access to the Network:
 Login to Prism, navigate to the VM Dashboard, Table View, select the CentOS VM, and click Update, ensure that the VM has a NIC added, if it does not, add one now and attach it to VLAN0. Save the VM Settings and continue to the next steps.

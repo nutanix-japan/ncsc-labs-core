@@ -6,37 +6,42 @@
 
 Fit Check Services
 +++++++++++++++++++
-
-Run diagnostics.py
-------------------------------------------
-
-#. SSH to CVM
-
-   .. code-block:: bash
-
-    ssh -l nutanix <CVM IP ADDRESS>
-
-#. Run the following script
-
-   .. code-block:: bash
-
-     /home/nutanix/diagnostics/diagnostics.py run
-
-#. View output from the following directory ``/home/nutanix/diagnostics/results``
-
-#. Run script script to cleanup files generated during diagnostics
-
-   .. code-block:: bash
-
-     /home/nutanix/diagnostics/diagnostics.py cleanup
-
-#. Review the output
+..
+.. Run diagnostics.py
+.. ------------------------------------------
+..
+.. #. SSH to CVM
+..
+..    .. code-block:: bash
+..
+..     ssh -l nutanix <CVM IP ADDRESS>
+..
+.. #. Run the following script
+..
+..    .. code-block:: bash
+..
+..      /home/nutanix/diagnostics/diagnostics.py run
+..
+.. #. View output from the following directory ``/home/nutanix/diagnostics/results``
+..
+.. #. Run script script to cleanup files generated during diagnostics
+..
+..    .. code-block:: bash
+..
+..      /home/nutanix/diagnostics/diagnostics.py cleanup
+..
+.. #. Review the output
 
 Run Nutanix X-Ray
 ------------------------------------------
 
+Normally X-Ray tests are not run in production Nutanix cluster environments.
+
+X-Ray tests should be run on a cluster where there is no X-Ray VM to avoid any skews performance and metrics.
+
 .. note::
- If X-Ray is already deployed in your labs skip Steps 1-9
+
+ Check in Prism Element if X-Ray VM is already deployed in your labs. Is yes, skip Steps 1-9
 
 #. Go to Nutanix Support Portal (https://portal.nutanix.com/page/downloads/list)
 
@@ -80,7 +85,7 @@ Run NCC Healthchecks
 
    .. code-block:: language
 
-     ncc heath_check run_all
+     ncc health_check run_all
 
 #. NCC output logs can be found in the following path on the CVM : ``/home/nutanix/data/logs/ncc-output.log``
 

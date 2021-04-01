@@ -26,7 +26,7 @@
   :name: _lab3
   :hidden:
 
-  lab3/lab3
+  move/move
 
 .. toctree::
   :maxdepth: 1
@@ -43,7 +43,6 @@
   :hidden:
 
   appendix/command_reference
-  appendix/dc_tools_vm
   appendix/windows_tools_vm
   appendix/linux_tools_vm
   appendix/glossary

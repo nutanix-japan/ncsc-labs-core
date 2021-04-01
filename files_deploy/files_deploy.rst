@@ -21,7 +21,7 @@ Traditionally, file storage has been yet another silo within IT, introducing unn
 Lab Setup
 +++++++++
 
-This lab requires applications provisioned as part of the :ref:`windows_tools_vm` and :ref:`dc_tools_vm`.
+Make sure your Domain Controller VM ``AUTODC`` is running before continuing with this lab.
 
 If you have not yet deployed this VM, see the linked steps above before proceeding with the lab.
 
