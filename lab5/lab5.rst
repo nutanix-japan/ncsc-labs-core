@@ -37,7 +37,7 @@ Run Nutanix X-Ray
 
 X-Ray is a benchmarking tool. X-Ray is an automated testing framework and benchmarking solution that offers comprehensive 360° assessments of major hyperconverged infrastructure solutions(HCI). X-Ray tests are not run in production Nutanix cluster environments.
 
-X-Ray tests should be run on a cluster where there is no X-Ray VM to avoid any skews performance and metrics.
+X-Ray tests should be run on a cluster where there is no X-Ray VM to avoid any skews on performance and metrics.
 
 .. note::
 
