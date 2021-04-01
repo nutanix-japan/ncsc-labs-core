@@ -14,7 +14,7 @@ For this lab you will need some test virtual machines. Follow the steps to creat
 
 #. Locate Windows 2012 VM in Prism Element > VM
 
-#. Right-click on the Windows 2012 VM and select clone
+#. Right-click on the Windows 2012 VM and select clone (do not power on this template VM)
 
 #. Name the clone as **Initials**-Win2012
 
