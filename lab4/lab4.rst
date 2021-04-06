@@ -71,11 +71,6 @@ We will now restore VM from Replication:
    - Choose to create new entity to restore to a new VM. (Prefix: Nutanix-Clone-)
    - Look at VMs to see there are new VMs restore from your snapshots
 
-#. Overwrite Existing Entities (remember to use a clone to have a copy of your VM):
-
-   - Choose to overwrite your VM while online
-   - The VM should boot into the VM at the point in time of the snapshot
-
 Self Service Restore (SSR)
 ---------------------------
 

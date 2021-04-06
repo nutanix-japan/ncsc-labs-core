@@ -4,10 +4,10 @@
 
 .. note::
 
-	Due to Covid-19, Remote Installations are now being done with the majority of our customers.  This can be done in a few ways.  The remote installation workflow is different but can be simplified by manually setting the node IPs.  Because manually setting the node IPs covers a much broader situations we will be focusing on these stepsin the Labs.  Rack and stack and setting the IPMI IPs via BIOS or ipmitool commandwill have to be done by someone ahead of timein order for you to have access to these systemsremotely.Note: Theremote installation steps are also used for node models that do not have 1Gb portsor dark sites.
+	Due to Covid-19, Remote Installations are now being done with the majority of our customers.  This can be done in a few ways.  The remote installation workflow is different but can be simplified by manually setting the host/cvm IPs.  Because manually setting the host/cvm IPs covers a much broader situations we will be focusing on these steps in the Labs.  Rack and stack and setting the IPMI IPs via BIOS or ipmitool command will have to be done by someone ahead of time in order for you to have access to these systems remotely. The remote installation steps are also used for node models that do not have 1Gb ports or dark sites.
 
 Remote Console
-+++++++++++++++
+.................
 
 #. Open a web browser to your IPMI IP: ``http://<IPMI IP>`` USE YOUR ASSIGNED NODE(S)
 
@@ -43,8 +43,8 @@ Remote Console
 
     .. code-block:: bash
 
-        acli vm_list  #gets the list of vms
-        acli vm.force_off <name of VM> #forcefully shuts down VM
+        acli vm.list  #gets the list of vms and their UID
+        acli vm.force_off <UID of VM> #forcefully shuts down VM
 
 #. Execute the following command to destroy the cluster configurations – removes all CVM's services from the cluster. This is to put our labs in out of factory state.
 
@@ -74,11 +74,11 @@ Remote Console
      genesis restart
 
 Crashcart Tool
-++++++++++++++++++++++++++++++
+..................................
 
 In a remote install or deployment the IPMI was set ahead of time for remote access this command will now be use to set the HOST and CVM IP as well as Network settings.
 
-#. Continued from the previous console we can run the following commands:
+#. Open the host console and run the following commands:
 
    .. code-block:: bash
 
@@ -94,7 +94,7 @@ In a remote install or deployment the IPMI was set ahead of time for remote acce
 #. You can now “exit” and close your remote console
 
 Foundation on CVM
-++++++++++++++++++++++++++++++
+..................................
 
 #. Open a web browser to your CVM IP: ``http://<CVM IP:8000>``  use your assigned CVM's IP
 
@@ -523,12 +523,12 @@ Foundation on CVM
 .. .. image:: images/image024.png
 
 
-1-Click Upgrade
-++++++++++++++++++++++++++++++
+Cluster Upgrade
+..................................
 
 .. note::
 
-	To determine the proper upgrade path from your current release to the target release, please check this link: https://portal.nutanix.com/#/page/upgradePaths
+	To determine the proper upgrade path from your current release to the target release, please check this link: \https://portal.nutanix.com/#/page/upgradePaths
 
 #. In Prism Element.  Click the Gear Icon again
 
@@ -536,13 +536,17 @@ Foundation on CVM
 
    .. note::
 
-    This will and detect online if there is a later version of the LTS or STS version of AOS currently running in the cluster.  If you want to go from change between LTS and STS you may have to up load the binaries manually.  IMPORTANT: To determine the proper upgrade path from your current release to the target release, please check this link: https://portal.nutanix.com/#/page/upgradePaths
+    This will and detect online if there is a later version of the LTS or STS version of AOS currently running in the cluster. If you want to go from change between LTS and STS you may have to up load the binaries manually. IMPORTANT: To determine the proper upgrade path from your current release to the target release, please check this `link <https://portal.nutanix.com/#/page/upgradePaths>`_ . For manual download go to `Nutanix Portal <http://portal.nutanix.com>`_
 
-#.	Download the required files.  To manually download the software files are available on http://portal.nutanix.com
+#. Click on :fa:`cog` and choose **Upgrade Software**
 
-#.	Click **Upgrade** then **Upgrade Now**
+   .. note::
 
-#.	Notice you can click **Close** and go to tasks and watch all the detailed tasks running in the background
+   	If the upgrade files are not downloaded, choose **Download**
+
+#. Click **Upgrade** then **Upgrade Now**
+
+#. Notice you can click **Close** and go to **Tasks** and watch all the detailed tasks running in the background
 
 .. Install Foundation VM
 .. ++++++++++++++++++++++++++++++
@@ -578,14 +582,14 @@ Foundation on CVM
 ..   **Software Only** system will come with nothing pre-installed you must to use these bare-metal steps.  In the same fashion, you can not auto-discover any of your nodes if it is part of a cluster.
 
 Prism Central Deploy
-+++++++++++++++++++++
+..................................
+..
+.. Open https://*<POCxx-ABC Cluster IP>*:9440 (\https://10.42.xx.37:9440) in your browser and log in with the following credentials:
+..
+.. - **Username** - admin
+.. - **Password** - *ask your instructor*
 
-Open \https://*<POCxx-ABC Cluster IP>*:9440 (\https://10.42.xx.37:9440) in your browser and log in with the following credentials:
-
-- **Username** - admin
-- **Password** - *ask your instructor*
-
-Navigate to **Home** page and click **Register or create new** in Prism Central widget.
+Navigate to **Home** page and click **Register or Create New** in Prism Central widget.
 
 .. figure:: images/1.png
 
@@ -593,7 +597,7 @@ Choose the first **Deploy** option.
 
 .. figure:: images/2.png
 
-Download the latest version and click **deploy 1-VM PC**
+Download the latest version and click **Deploy 1-VM PC**
 
 .. figure:: images/3.png
 
@@ -655,40 +659,42 @@ Test if you can login Prism Central with the new password.
 ..   Prism Central's default password for admin *Nutanix/4u* must be changed before cluster registering PC
 
 Create an As Built Guide
-++++++++++++++++++++++++++++++
+..................................
 
 .. note::
 
 	This is important lab after Nutanix cluster installation & configurations are completed. One of most important deliverables is the **As Built Guide** documentation.
 
-#.	Copy and Extract the “As_Built_Documenter” from the Cluster Deployment Service Kit & Choose the appropriate script for your OS:
+#. Copy and Extract the “As_Built_Documenter” from the Cluster Deployment Service Kit & Choose the appropriate script for your OS:
 
-#.	Windows: Nutanix_Cluster_as_Built_Windows_v3.4.zip
+   - Windows: Nutanix_Cluster_as_Built_Windows_v3.4.zip
 
-#.	Mac: Nutanix_Cluster_as_Built_Mac_v3.4.zip
+   - Mac: Nutanix_Cluster_as_Built_Mac_v3.4.zip
 
-#.	Follow instructions from the README file and execute the binary. You will be prompted for cluster *username* and *password*.
+#. Follow instructions from the README file and execute the binary. You will be prompted for cluster *username* and *password*.
 
-#.  Change to the directory where the zip file is extracted.
+#. Change to the directory where the zip file is extracted.
 
-    .. note::
+   .. note::
 
     	Make sure to use Prism Element cluster VIP address to execute the following command
 
-    For Windows workstations:
+   For Windows workstations:
 
-    .. code-block:: PowerShell
+   .. code-block:: PowerShell
 
       generate_document.exe -c "CompanyName, Inc." -n <Nutanix cluster IP>
 
-    For Mac:
+   For Mac:
 
-    .. code-block:: bash
+   .. code-block:: bash
 
       ./generate_document -c "CompanyName, Inc." -n <Nutanix cluster IP>
 
-#.	Open the file generated and modify the highlighted areas using provide templates to complete your as built document
+#. Open a commmand prompt or a terminal shell(in Mac).
 
-    .. note::
+#. Open the file generated and modify the highlighted areas using provide templates to complete your as built document
 
-      Use your company document template if applicable – this would be if you are providing the installation service in behalf of your company
+   .. note::
+
+    Use your company document template if applicable – this would be if you are providing the installation service in behalf of your company

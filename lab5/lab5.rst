@@ -81,6 +81,10 @@ Run Nutanix Collector
 Run NCC Healthchecks
 ------------------------------------------
 
+.. note::
+
+	Make sure only one person is running this on a cluster (confirm with your partner if you are sharing your cluster)
+
 #. SSH to CVM and run the following command
 
    .. code-block:: language

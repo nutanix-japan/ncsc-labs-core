@@ -6,14 +6,14 @@ AHV Networking
 +++++++++++++++
 
 Changing Network Bond modes in AHV
------------------------------------
+...................................................
 
 In this lab we would like to show you what it takes to set your bonds from the default active-backup to balance-slb (active/passive to active/active)
 
 .. figure:: images/ncsc-4.png
 
 Changing Bond from Active/backup to `balance-slb`
-----------------------------------------------------------------------
+....................................................................
 
 #. ssh into one of your CVMs
 
@@ -58,7 +58,7 @@ Changing Bond from Active/backup to `balance-slb`
      See :ref:`command_reference` for hostssh usage instructions.
 
 Setting the VLANs from command line (Optional Reference Lab)
--------------------------------------------------------------
+....................................................................
 
 .. note::
 
