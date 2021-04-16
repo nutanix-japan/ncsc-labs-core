@@ -4,36 +4,44 @@
 
 .. title:: Fit Check Services
 
-Run diagnostics.py
----------------------------------------------------------------
-
-#. SSH to CVM
-
-   .. code-block:: bash
-
-    ssh -l nutanix <CVM IP ADDRESS>
-
-#. Run the following script
-
-   .. code-block:: bash
-
-     /home/nutanix/diagnostics/diagnostics.py run
-
-#. View output from the following directory ``/home/nutanix/diagnostics/results``
-
-#. Run script script to cleanup files generated during diagnostics
-
-   .. code-block:: bash
-
-     /home/nutanix/diagnostics/diagnostics.py cleanup
-
-#. Review the output
+Fit Check Services
++++++++++++++++++++
+..
+.. Run diagnostics.py
+.. ------------------------------------------
+..
+.. #. SSH to CVM
+..
+..    .. code-block:: bash
+..
+..     ssh -l nutanix <CVM IP ADDRESS>
+..
+.. #. Run the following script
+..
+..    .. code-block:: bash
+..
+..      /home/nutanix/diagnostics/diagnostics.py run
+..
+.. #. View output from the following directory ``/home/nutanix/diagnostics/results``
+..
+.. #. Run script script to cleanup files generated during diagnostics
+..
+..    .. code-block:: bash
+..
+..      /home/nutanix/diagnostics/diagnostics.py cleanup
+..
+.. #. Review the output
 
 Run Nutanix X-Ray
----------------------------------------------------------------
+------------------------------------------
+
+X-Ray is a benchmarking tool. X-Ray is an automated testing framework and benchmarking solution that offers comprehensive 360° assessments of major hyperconverged infrastructure solutions(HCI). X-Ray tests are not run in production Nutanix cluster environments.
+
+X-Ray tests should be run on a cluster where there is no X-Ray VM to avoid any skews on performance and metrics.
 
 .. note::
- If X-Ray is already deployed in your labs skip Steps 1-5
+
+ Check in Prism Element if X-Ray VM is already deployed in your labs. Is yes, skip Steps 1-9
 
 #. Go to Nutanix Support Portal (https://portal.nutanix.com/page/downloads/list)
 
@@ -58,7 +66,7 @@ Run Nutanix X-Ray
 #. You can export the output to document and review the output.
 
 Run Nutanix Collector
-----------------------------
+------------------------------------------
 
 #. Download “Nutanix Collector” from Support Portal
 
@@ -71,13 +79,17 @@ Run Nutanix Collector
 #. Review the output and how it could be useful for most fit check services
 
 Run NCC Healthchecks
--------------------------
+------------------------------------------
+
+.. note::
+
+	Make sure only one person is running this on a cluster (confirm with your partner if you are sharing your cluster)
 
 #. SSH to CVM and run the following command
 
    .. code-block:: language
 
-     ncc heath_check run_all
+     ncc health_check run_all
 
 #. NCC output logs can be found in the following path on the CVM : ``/home/nutanix/data/logs/ncc-output.log``
 
