@@ -12,29 +12,29 @@
   files_deploy/files_deploy
   objects_deploy/objects_deploy
 
-.. toctree::
-  :maxdepth: 1
-  :caption: Data Protection Services
-  :name: _lab4
-  :hidden:
-
-  lab4/lab4
-
-.. toctree::
-  :maxdepth: 1
-  :caption: Migration Services
-  :name: _lab3
-  :hidden:
-
-  move/move
-
-.. toctree::
-  :maxdepth: 1
-  :caption: Fit Check Services
-  :name: _lab5
-  :hidden:
-
-  lab5/lab5
+.. .. toctree::
+..   :maxdepth: 1
+..   :caption: Data Protection Services
+..   :name: _lab4
+..   :hidden:
+..
+..   lab4/lab4
+..
+.. .. toctree::
+..   :maxdepth: 1
+..   :caption: Migration Services
+..   :name: _lab3
+..   :hidden:
+..
+..   move/move
+..
+.. .. toctree::
+..   :maxdepth: 1
+..   :caption: Fit Check Services
+..   :name: _lab5
+..   :hidden:
+..
+..   lab5/lab5
 
 .. toctree::
   :maxdepth: 2
