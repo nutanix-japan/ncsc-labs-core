@@ -6,8 +6,13 @@
 
 	Due to Covid-19, Remote Installations are now being done with the majority of our customers.  This can be done in a few ways.  The remote installation workflow is different but can be simplified by manually setting the host/cvm IPs.  Because manually setting the host/cvm IPs covers a much broader situations we will be focusing on these steps in the Labs.  Rack and stack and setting the IPMI IPs via BIOS or ipmitool command will have to be done by someone ahead of time in order for you to have access to these systems remotely. The remote installation steps are also used for node models that do not have 1Gb ports or dark sites.
 
+Deployment Services
++++++++++++++++++++++
+
+In this section we will look at Deployment Services and test activites on our assigned cluster.
+
 Remote Console
-.................
+................
 
 #. Open a web browser to your IPMI IP: ``http://<IPMI IP>`` USE YOUR ASSIGNED NODE(S)
 
@@ -132,10 +137,10 @@ Foundation on CVM
 
 #. When completed, open a web browser to CVM IP: ``http://<Cluster_IP>``
 
-#. Use the following user name and password provided in the lab.  (You may change the password to one you’d like to use)
+#. Use the following user name and password provided in the lab.
 
    - User: admin
-   - Password: Nutanix/4u
+   - Password: See Lab Guide or Ask your instructor
 
 #. Add your cluster VIP in Prism Element as shown here (click on the cluster name in Prism Element main dashboard on the top left-hand corner)
 
@@ -616,8 +621,7 @@ Fill out the following fields, leave others as default and click **Deploy**:
 After Prism Central VM is successfully deployed, open \https://*<PC VM IP>*:9440 (\https://10.42.xx.39:9440) in your browser and log in with the following credentials:
 
 - **Username** - admin
-- **Password** - default with capital N
-- change password to **ask your instructor**
+- **Password** - Nutanix/4u
 
 Test if you can login Prism Central with the new password.
 
