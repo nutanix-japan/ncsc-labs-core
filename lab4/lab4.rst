@@ -156,7 +156,7 @@ To move the VM from site A to Site B
 
 #. From Site A, select your Protection Domain
 
-#. Choose **Migrate** and notice all the VMs in that Protection Domain should be removed from Site A and powered on in Site B (Fail-Over)
+#. Choose **Migrate** and notice all the VMs in that Protection Domain should be removed from Site A nd should now show in site B to be powered on (Fail-Over)
 
 #. Feel free to continue work on the VM and make changes and repeat those steps 1&2 to migrate the Protection Domain back to Site A (Fail-Back)
 
