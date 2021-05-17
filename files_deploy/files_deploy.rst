@@ -1,5 +1,4 @@
-.. _files_deploy:
-
+\.. _files_deploy:
 
 .. title:: Nutanix Certified Services Consultant - Nutanix Files Deployment
 
@@ -126,6 +125,10 @@ Deploy Files
    .. note::
 
      If you receive a warning regarding DNS record validation failure, this can be safely ignored. The shared cluster does not use the same DNS servers as your Files cluster, and as a result is unable to resolve the DNS entries created when deploying Files.
+
+.. note::
+
+     The following steps are options. Only do them if you have time.
 
 #. While waiting for the file server deployment, if you have not already done so deploy the Windows Tools VM.
 

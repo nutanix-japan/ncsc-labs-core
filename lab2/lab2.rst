@@ -8,6 +8,10 @@ AHV Networking
 Changing Network Bond modes in AHV
 ...................................................
 
+.. note::
+
+   If you are using AOS version 5.19, network bridge br0 will be named vs0. Use vs0 reference in all your commands.
+    
 In this lab we would like to show you what it takes to set your bonds from the default active-backup to balance-slb (active/passive to active/active)
 
 .. figure:: images/ncsc-4.png
